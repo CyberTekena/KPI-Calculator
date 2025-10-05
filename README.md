@@ -5,6 +5,8 @@ A single-page web application that calculates key hotel performance indicators i
 ## Features
 
 - **Real-time calculations** - KPIs update instantly as you type
+- **Input validation** - Comprehensive validation with clear error messages
+- **Data sanitization** - Ensures clean, valid numeric inputs
 - **Three core metrics:**
   - **Occupancy Rate (%)** - Percentage of rooms occupied
   - **ADR (Average Daily Rate)** - Average revenue per room sold
@@ -39,10 +41,12 @@ Then navigate to `http://localhost:8000` in your browser.
 
 ```
 hotel-kpi-calculator/
-├── index.html      # Main HTML structure with semantic markup
-├── styles.css      # Complete styling with CSS variables and responsive design
-├── script.js       # Calculation logic and real-time update handlers
-└── README.md       # This file
+├── index.html           # Main HTML structure with semantic markup
+├── styles.css          # Core styling with CSS variables and responsive design
+├── script.js           # Calculation logic and real-time update handlers
+├── validation.js       # Input validation and sanitization module
+├── form-validation.css # Validation-specific styles
+└── README.md          # Project documentation
 ```
 
 ## Test Cases
@@ -155,6 +159,21 @@ Use this script when recording your demonstration video:
 - Calculations are performed on every keystroke
 - Visual highlight animation provides feedback when values change
 
+### Input Validation Module
+- **Business Rules:**
+  - Total rooms: 1 to 100,000
+  - Rooms sold: Cannot exceed total rooms
+  - Revenue: $0 to $1,000,000,000
+- **Real-time Validation:**
+  - Validates on input
+  - Shows immediate error feedback
+  - Prevents invalid calculations
+- **Input Sanitization:**
+  - Removes non-numeric characters
+  - Handles decimal points correctly
+  - Prevents multiple decimal points
+  - Removes leading zeros
+
 ### Currency Formatting
 - Uses `Intl.NumberFormat` API for consistent USD formatting
 - Always displays two decimal places (e.g., $125.50)
@@ -165,6 +184,12 @@ Use this script when recording your demonstration video:
 - **Negative values:** Prevented via HTML `min="0"` and JavaScript validation
 - **Empty inputs:** Treated as zero to allow progressive data entry
 - **Context-sensitive hints:** Explains why a metric cannot be calculated
+- **Input validation:**
+  - Ensures rooms sold doesn't exceed total rooms
+  - Validates reasonable maximum values
+  - Provides clear error messages
+  - Real-time input sanitization
+  - Visual feedback for invalid inputs
 
 ### Responsive Breakpoints
 - **Mobile (≤767px):** Single-column layout, optimized for touch
