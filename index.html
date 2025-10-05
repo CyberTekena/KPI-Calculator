@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel KPI Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-decoration">
+                <div class="header-line"></div>
+                <div class="header-star">★</div>
+                <div class="header-line"></div>
+            </div>
+            <h1>Hotel Performance Dashboard</h1>
+            <p class="subtitle">Real-time KPI Analytics for Hospitality Excellence</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <h2>Property Data</h2>
+                <form id="kpi-form" autocomplete="off">
+                    <div class="form-group">
+                        <label for="total-rooms">Total Rooms Available</label>
+                        <input
+                            type="number"
+                            id="total-rooms"
+                            name="totalRooms"
+                            min="0"
+                            step="1"
+                            aria-describedby="total-rooms-help"
+                            autofocus
+                        >
+                        <small id="total-rooms-help" class="help-text">Total number of rooms in your property</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rooms-sold">Rooms Sold</label>
+                        <input
+                            type="number"
+                            id="rooms-sold"
+                            name="roomsSold"
+                            min="0"
+                            step="1"
+                            aria-describedby="rooms-sold-help"
+                        >
+                        <small id="rooms-sold-help" class="help-text">Number of rooms occupied</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="total-revenue">Total Room Revenue ($)</label>
+                        <input
+                            type="number"
+                            id="total-revenue"
+                            name="totalRevenue"
+                            min="0"
+                            step="0.01"
+                            aria-describedby="total-revenue-help"
+                        >
+                        <small id="total-revenue-help" class="help-text">Total revenue from room sales</small>
+                    </div>
+
+                    <button type="button" id="clear-btn" class="clear-button">Clear All</button>
+                </form>
+            </section>
+
+            <section class="results-section">
+                <h2>Key Performance Indicators</h2>
+                <div class="kpi-cards">
+                    <div class="kpi-card occupancy-card" id="occupancy-card">
+                        <div class="card-badge">OCC</div>
+                        <h3>Occupancy Rate</h3>
+                        <div class="kpi-value" id="occupancy-value">0.00%</div>
+                        <p class="kpi-formula">Rooms Sold ÷ Total Rooms Available × 100</p>
+                        <small class="kpi-hint" id="occupancy-hint"></small>
+                    </div>
+
+                    <div class="kpi-card adr-card" id="adr-card">
+                        <div class="card-badge">ADR</div>
+                        <h3>Average Daily Rate</h3>
+                        <div class="kpi-subheading">Average Daily Rate</div>
+                        <div class="kpi-value" id="adr-value">$0.00</div>
+                        <p class="kpi-formula">Total Revenue ÷ Rooms Sold</p>
+                        <small class="kpi-hint" id="adr-hint"></small>
+                    </div>
+
+                    <div class="kpi-card revpar-card" id="revpar-card">
+                        <div class="card-badge">REV</div>
+                        <h3>Revenue Per Available Room</h3>
+                        <div class="kpi-subheading">Revenue Per Available Room</div>
+                        <div class="kpi-value" id="revpar-value">$0.00</div>
+                        <p class="kpi-formula">Total Revenue ÷ Total Rooms Available</p>
+                        <small class="kpi-hint" id="revpar-hint"></small>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Premium Hotel Analytics Platform</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
